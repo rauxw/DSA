@@ -1,4 +1,4 @@
-const originalString = "Apple";
+const originalString = "Apple King";
 
 function reverseString(string) {
   let reverse = "";
