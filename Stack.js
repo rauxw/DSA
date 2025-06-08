@@ -21,6 +21,7 @@ class Stack {
   pop() {
     let temp = this.first;
     this.first = this.first.next;
+    temp.next = null;
     this.length--;
     return temp.value;
   }
@@ -52,3 +53,4 @@ console.log("--------------------");
 console.log(myStack.pop());
 console.log("--------------------");
 myStack.display();
+console.log(myStack);
