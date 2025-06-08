@@ -26,31 +26,33 @@ class Stack {
     return temp.value;
   }
 
+  min() {
+    let current = this.first;
+    let minValue = current.value;
+
+    while (current.next !== null) {
+      current = current.next;
+      if (current.value < minValue) {
+        minValue = current.value;
+      }
+    }
+    this.display();
+    console.log(`Minimum value: ${minValue}`);
+  }
+
   display() {
     let current = this.first;
-    const elementNodes = [];
+    const values = [];
     while (current !== null) {
-      elementNodes.push(current.value);
+      values.push(current.value);
       current = current.next;
     }
-    console.log("Stack {top to bottom}:", elementNodes);
+    console.log("Stack {top to bottom}:", values);
   }
 }
 
 let myStack = new Stack(9);
-myStack.push(1);
-myStack.push(2);
-console.log("---------------------------");
-myStack.display();
-console.log("---------------------------");
-myStack.pop();
-myStack.display();
 myStack.push(25);
 myStack.push(80);
 myStack.push(36);
-myStack.display();
-console.log("--------------------");
-console.log(myStack.pop());
-console.log("--------------------");
-myStack.display();
-console.log(myStack);
+myStack.min();
