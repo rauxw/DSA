@@ -106,6 +106,28 @@ function traverseInOrder(node, list) {
   return list;
 }
 
+function traversePreOrder(node, list) {
+  list.push(node.value);
+  if (node.left) {
+    traversePreOrder(node.left, list);
+  }
+  if (node.right) {
+    traversePreOrder(node.right, list);
+  }
+  return list;
+}
+
+function traversePostOrder(node, list) {
+  if (node.left) {
+    traversePostOrder(node.left, list);
+  }
+  if (node.right) {
+    traversePostOrder(node.right, list);
+  }
+  list.push(node.value);
+  return list;
+}
+
 const tree = new BinarySearchTree();
 tree.insert(9);
 tree.insert(4);
@@ -117,3 +139,5 @@ tree.insert(1);
 console.log(tree.breathFirstSearch());
 console.log(tree.breathFirstSearchR([tree.root], []));
 console.log(tree.dfsInOrder());
+console.log(tree.dfsPreOrder());
+console.log(tree.dfsPostOrder());
